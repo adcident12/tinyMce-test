@@ -27,7 +27,7 @@ $(document).ready(function(){
                 window.setTimeout(function () {
                     success(matches);
                 }, timeout);
-                console.log(success(matches));
+                // console.log(success(matches));
             };
             return findUser(term, success);
         });
@@ -42,7 +42,7 @@ $(document).ready(function(){
 
     var mentions_fetch = function (query, success) {
         MentionsServer(query.term, success);
-        console.log(success);
+        // console.log(success);
     };
 
 //TINYMCE
@@ -50,10 +50,13 @@ $(document).ready(function(){
     tinymce.init({
         selector: "textarea",
         themes: "modern",
-        plugins: "mentions lists emoticons code",
-        toolbar: "numlist bullist emoticons code",
+        plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount a11ychecker imagetools textpattern help mentions',
+        // plugins: "mentions lists emoticons code",
+        // toolbar: "numlist bullist emoticons code",
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
         mentions_selector: '.mentionsmentionsmentions',
         mentions_fetch: mentions_fetch,
         mentions_menu_complete: mentions_menu_complete,
+        image_advtab: true,
     });
 });
