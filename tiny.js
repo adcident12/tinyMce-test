@@ -21,11 +21,13 @@ $(document).ready(function(){
                 var matches = users.filter(function (user) {
                     return user.name.indexOf(term.toLowerCase()) === 0;
                 });
-                matches = matches.slice(0, 10);
+                matches = matches.slice(0, 15);
+                // console.log(matches);
                 var timeout = 30;
                 window.setTimeout(function () {
                     success(matches);
                 }, timeout);
+                console.log(success(matches));
             };
             return findUser(term, success);
         });
