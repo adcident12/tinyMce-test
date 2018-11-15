@@ -50,7 +50,7 @@ $(document).ready(function(){
     tinymce.init({
         selector: "textarea",
         themes: "modern",
-        plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount a11ychecker imagetools textpattern help mentions',
+        plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media codesample table charmap hr pagebreak nonbreaking toc insertdatetime advlist lists wordcount imagetools textpattern help mentions',
         // plugins: "mentions lists emoticons code",
         // toolbar: "numlist bullist emoticons code",
         toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
