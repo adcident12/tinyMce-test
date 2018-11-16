@@ -1,14 +1,14 @@
 // @ts-ignore
 $(document).ready(function(){
     $('#submit').click(function(){
-        var content = tinyMCE.get('textarea').getContent();
-        $('#content').html(content);
+        var contents = tinyMCE.get('textarea').getContent();
+        $('#content').html(contents);
     });
     $('#append').click(function(){
         var image = 'https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png';
         var fullName = 'Terry Green';
-        var rs = '<span style="color: green" class="mentions"><img src="'+image+'" style="width: 50px; height: 50px; border-radius: 25px 25px; position: relative; top: 15px;">'+" "+fullName+'</span>';
-        tinymce.execCommand('mceInsertRawHTML', false, rs);
+        var content = '<span style="color: green" class="mentions"><img src="'+image+'" style="width: 50px; height: 50px; border-radius: 25px 25px; position: relative; top: 15px;">'+" "+fullName+'</span>';
+        tinymce.execCommand('mceInsertRawHTML', false, content);
     });
     //ดึงข้อมูลจาก php
     var MentionsServer = function (term, success) {
