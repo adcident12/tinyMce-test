@@ -4,11 +4,12 @@ $(document).ready(function(){
         var contents = tinyMCE.get('textarea').getContent();
         $('#content').html(contents);
     });
+    var id = 1;
     $('#append').click(function(){
-        var id = 1;
         var fullName = 'Terry Green';
         var content = createMentionHtml(fullName, id);
         tinymce.execCommand('mceInsertContent', false, content);
+        id++;
         
     });
     //ดึงข้อมูลจาก php
