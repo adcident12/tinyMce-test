@@ -1,8 +1,9 @@
 // @ts-ignore
 $(document).ready(function(){
     $('#submit').click(function(){
-        var content = tinyMCE.get('textarea').getContent()
-        console.log(content);
+        var content = tinyMCE.get('textarea').getContent();
+        // console.log(content);
+        $('#content').html(content);
     });
     $('#append').click(function(){
         var image = 'https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png';
