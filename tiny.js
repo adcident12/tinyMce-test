@@ -45,7 +45,6 @@ $(document).ready(function(){
 
     //autocomplete
     var mentions_menu_complete = function (editor, userinfo) {
-        console.log(editor);
         var div = editor.getDoc().createElement('div');
         div.innerHTML = createMentionHtml(userinfo.fullName, userinfo.id);
         return div.childNodes[0];
@@ -60,10 +59,10 @@ $(document).ready(function(){
     tinymce.init({
         selector: "textarea",
         themes: "modern",
-        // plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media codesample table charmap hr pagebreak nonbreaking toc insertdatetime advlist lists wordcount imagetools textpattern help mentions',
-        // toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-        plugins: "mentions",
-        toolbar: "numlist",
+        plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media codesample table charmap hr pagebreak nonbreaking toc insertdatetime advlist lists wordcount imagetools textpattern help mentions',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        // plugins: "mentions",
+        // toolbar: "numlist",
         mentions_selector: '.mentions',
         mentions_fetch: mentions_fetch,
         mentions_menu_complete: mentions_menu_complete,
