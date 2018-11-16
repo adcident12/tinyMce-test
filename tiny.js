@@ -2,7 +2,6 @@
 $(document).ready(function(){
     $('#submit').click(function(){
         var content = tinyMCE.get('textarea').getContent();
-        // console.log(content);
         $('#content').html(content);
     });
     $('#append').click(function(){
@@ -44,9 +43,9 @@ $(document).ready(function(){
 
     //autocomplete
     var mentions_menu_complete = function (editor, userinfo) {
-        const x = document.createElement('div');
-        x.innerHTML = '<span style="color: green" class="mentions"><img src="'+userinfo.image+'" style="width: 50px; height: 50px; border-radius: 25px 25px; position: relative; top: 15px;">'+" "+userinfo.fullName+'</span>';
-        return x.childNodes[0];
+        var div = editor.getDoc().createElement('div');
+        div.innerHTML = '<span style="color: green" class="mentions"><img src="'+userinfo.image+'" style="width: 50px; height: 50px; border-radius: 25px 25px; position: relative; top: 15px;">'+" "+userinfo.fullName+'</span>';
+        return div.childNodes[0];
     };
 
     var mentions_fetch = function (query, success) {
