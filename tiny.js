@@ -5,10 +5,11 @@ $(document).ready(function(){
         $('#content').html(contents);
     });
     $('#append').click(function(){
-        var image = 'https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Bearded_Man-17-512.png';
+        var id = 1;
         var fullName = 'Terry Green';
-        var content = '<span style="color: green" class="mentions"><img src="'+image+'" style="width: 50px; height: 50px; border-radius: 25px 25px; position: relative; top: 15px;">'+" "+fullName+'</span>';
-        tinymce.execCommand('mceInsertRawHTML', false, content);
+        var content = createMentionHtml(fullName, id);
+        tinymce.execCommand('mceInsertContent', false, content);
+        
     });
     //ดึงข้อมูลจาก php
     var MentionsServer = function (term, success) {
@@ -43,8 +44,9 @@ $(document).ready(function(){
 
     //autocomplete
     var mentions_menu_complete = function (editor, userinfo) {
+        console.log(editor);
         var div = editor.getDoc().createElement('div');
-        div.innerHTML = '<span style="color: green" class="mentions"><img src="'+userinfo.image+'" style="width: 50px; height: 50px; border-radius: 25px 25px; position: relative; top: 15px;">'+" "+userinfo.fullName+'</span>';
+        div.innerHTML = createMentionHtml(userinfo.fullName, userinfo.id);
         return div.childNodes[0];
     };
 
@@ -57,13 +59,17 @@ $(document).ready(function(){
     tinymce.init({
         selector: "textarea",
         themes: "modern",
-        plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media codesample table charmap hr pagebreak nonbreaking toc insertdatetime advlist lists wordcount imagetools textpattern help mentions',
-        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-        // plugins: "mentions",
-        // toolbar: "numlist",
+        // plugins: 'print fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media codesample table charmap hr pagebreak nonbreaking toc insertdatetime advlist lists wordcount imagetools textpattern help mentions',
+        // toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        plugins: "mentions",
+        toolbar: "numlist",
         mentions_selector: '.mentions',
         mentions_fetch: mentions_fetch,
         mentions_menu_complete: mentions_menu_complete,
         image_advtab: true,
     });
 });
+
+function createMentionHtml(fullname, id){
+    return '<span class="mentions" style="color: green;" contenteditable="false" data-mce-mentions-id="'+id+'" data-mce-style="color: green;">@'+fullname+'</span>';
+}

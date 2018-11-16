@@ -9331,13 +9331,10 @@ var silver = (function () {
       };
     };
     var renderNormalItemStructure = function (info, icon) {
-      // console.log(icon);
+      // console.log(info);
       var leftIcon = info.checkMark.orThunk(function () {
         return icon.or(Option.some('')).map(renderIcon);
       });
-      // var leftIcon = info.ariaLabel.map(function (label) {
-        
-      // });
       var domTitle = info.ariaLabel.map(function (label) {
         // console.log(label);
         return { attributes: { title: global$3.translate(label) } };
